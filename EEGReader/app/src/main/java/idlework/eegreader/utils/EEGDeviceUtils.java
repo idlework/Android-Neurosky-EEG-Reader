@@ -4,7 +4,7 @@ import android.bluetooth.BluetoothAdapter;
 
 import com.neurosky.thinkgear.TGDevice;
 
-import idlework.eegreader.contracts.GenericActivitySignalContract;
+import idlework.eegreader.generics.contracts.GenericActivitySignalContract;
 import idlework.eegreader.neurosky.EEGDeviceHandler;
 
 public class EEGDeviceUtils {

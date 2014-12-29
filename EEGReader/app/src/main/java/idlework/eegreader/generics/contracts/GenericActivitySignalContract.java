@@ -1,4 +1,4 @@
-package idlework.eegreader.contracts;
+package idlework.eegreader.generics.contracts;
 
 public interface GenericActivitySignalContract {
   void setMessageFromDevice(String string);

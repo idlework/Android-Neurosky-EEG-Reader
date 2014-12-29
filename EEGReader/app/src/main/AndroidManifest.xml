@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="idlework.eegreader"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+  package="idlework.eegreader"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <uses-sdk android:minSdkVersion="15"/>
 
   <uses-permission android:name="android.permission.BLUETOOTH"/>
 
   <application
-    android:allowBackup="true"
+    android:name="idlework.eegreader.generics.GenericApplication"
     android:icon="@drawable/ic_launcher"
     android:label="@string/app_name"
     android:theme="@style/AppTheme">
     <activity
-      android:name=".MainActivity"
-      android:label="@string/app_name">
+      android:name=".activities.SplashScreenActivity"
+      android:label="@string/title_activity_splash_screen"
+      android:screenOrientation="portrait"
+      android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
+    </activity>
+    <activity
+      android:name=".activities.ConnectActivity"
+      android:label="@string/title_activity_connect">
     </activity>
   </application>
 

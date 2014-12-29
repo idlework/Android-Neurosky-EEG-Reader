@@ -8,7 +8,7 @@ import com.neurosky.thinkgear.TGDevice;
 import java.util.HashMap;
 import java.util.Map;
 
-import idlework.eegreader.contracts.GenericActivitySignalContract;
+import idlework.eegreader.generics.contracts.GenericActivitySignalContract;
 import idlework.eegreader.generics.GenericApplication;
 import idlework.eegreader.neurosky.brainwaves.BrainwaveAlphaHigh;
 import idlework.eegreader.neurosky.brainwaves.BrainwaveAlphaLow;

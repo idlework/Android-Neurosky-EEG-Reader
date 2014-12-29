@@ -1,9 +1,11 @@
-package idlework.eegreader;
+package idlework.eegreader.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import idlework.eegreader.R;
 
 
 public class MainActivity extends ActionBarActivity {
