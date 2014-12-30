@@ -8,36 +8,36 @@ import idlework.eegreader.generics.contracts.GenericActivitySignalContract;
 import idlework.eegreader.neurosky.EEGDeviceHandler;
 
 public class EEGDeviceUtils {
-  private static TGDevice tgDevice;
+  private static TGDevice device;
   private BluetoothAdapter bluetoothAdapter;
-  private EEGDeviceHandler tgDeviceHandler;
-  private boolean isTGDeviceRawSignalEnabled = true;
+  private EEGDeviceHandler deviceHandler;
+  private boolean isDeviceRawSignalEnabled = true;
 
   private boolean isDeviceConnecting() {
-    return tgDevice.getState() == TGDevice.STATE_CONNECTING;
+    return device.getState() == TGDevice.STATE_CONNECTING;
   }
 
   public boolean isDeviceConnected() {
-    return tgDevice.getState() == TGDevice.STATE_CONNECTED;
+    return device.getState() == TGDevice.STATE_CONNECTED;
   }
 
   public boolean initializeBlueToothAdapter() {
-    tgDeviceHandler = new EEGDeviceHandler();
+    deviceHandler = new EEGDeviceHandler();
     bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     if (bluetoothAdapter == null) {
       return false;
     } else {
-      setDevice(new TGDevice(bluetoothAdapter, tgDeviceHandler));
+      setDevice(new TGDevice(bluetoothAdapter, deviceHandler));
       return true;
     }
   }
 
   public TGDevice getDevice() {
-    return tgDevice;
+    return device;
   }
 
   public void setDevice(TGDevice tgDevice) {
-    EEGDeviceUtils.tgDevice = tgDevice;
+    EEGDeviceUtils.device = tgDevice;
   }
 
   public void reconnectToDevice() {
@@ -47,23 +47,23 @@ public class EEGDeviceUtils {
 
   public void connectToDevice() {
     if (!isDeviceConnecting() && !isDeviceConnected()) {
-      tgDevice.connect(isTGDeviceRawSignalEnabled);
+      device.connect(isDeviceRawSignalEnabled);
     }
   }
 
   public void disconnectFromDevice() {
-    if (tgDevice != null) {
-      tgDevice.close();
-      tgDevice = null;
+    if (device != null) {
+      device.close();
+      device = null;
     }
   }
 
   public boolean isBluetoothTurnedOn() {
-    BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-    return (mBluetoothAdapter != null && mBluetoothAdapter.isEnabled());
+    BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    return (bluetoothAdapter != null && bluetoothAdapter.isEnabled());
   }
 
   public void setActivityViewContract(GenericActivitySignalContract activity) {
-    tgDeviceHandler.setActivityViewContract(activity);
+    deviceHandler.setActivityViewContract(activity);
   }
 }

@@ -3,7 +3,6 @@ package idlework.eegreader.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,19 +33,21 @@ public class ConnectActivity extends GenericActivity implements ActivityConnectC
     }
   };
 
+  @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    Log.d("ConnectActivity", "onCreate");
+    setContentView(R.layout.activity_connect);
 
     nextActivityHandler = new Handler();
-    bluetoothConnect = (ImageView)findViewById(R.id.bluetooth_connect);
-    labelConnect = (TextView)findViewById(R.id.label_connect);
+    bluetoothConnect = (ImageView) findViewById(R.id.bluetooth_connect);
+    labelConnect = (TextView) findViewById(R.id.label_connect);
   }
 
   @Override
   protected void onResume() {
     super.onResume();
+
     connectController = new ConnectController(this);
 
     if (!GenericApplication.getEegDeviceUtils().initializeBlueToothAdapter()) {
@@ -83,6 +84,11 @@ public class ConnectActivity extends GenericActivity implements ActivityConnectC
   public void setMessageFromDevice(String string) {
     labelConnect.setText(string);
     connectController.establishConnection(string, startNextActivity);
+  }
+
+  @Override
+  public void setSignalLevel(int level) {
+
   }
 
   @Override

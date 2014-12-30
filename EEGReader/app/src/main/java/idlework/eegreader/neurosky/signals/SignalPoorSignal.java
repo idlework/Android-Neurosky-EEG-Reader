@@ -1,5 +1,6 @@
 package idlework.eegreader.neurosky.signals;
 
+import idlework.eegreader.neurosky.EEGDeviceHandler;
 import idlework.eegreader.neurosky.GenericSignal;
 import idlework.eegreader.neurosky.SignalSettable;
 import idlework.eegreader.utils.LogUtils;
@@ -9,6 +10,7 @@ public class SignalPoorSignal extends GenericSignal implements Runnable, SignalS
 
   @Override
   public void run() {
-    LogUtils.LOGD(TAG, "Signal is poor.");
+    EEGDeviceHandler.getActivityViewContract().setSignalLevel(level);
+    LogUtils.LOGD(TAG, "Control signal - Signal level: " + level);
   }
 }

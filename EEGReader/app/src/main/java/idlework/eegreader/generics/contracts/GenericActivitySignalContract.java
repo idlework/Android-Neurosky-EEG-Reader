@@ -3,6 +3,8 @@ package idlework.eegreader.generics.contracts;
 public interface GenericActivitySignalContract {
   void setMessageFromDevice(String string);
 
+  void setSignalLevel(int level);
+
   void setAttentionLevel(int level);
 
   void setMeditationLevel(int level);
